@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c7ddd1f664b404abaf19173f04718fe",
+    "revision": "e23861f022f659ff0acd57d5747d8370",
     "url": "/catfriends/index.html"
   },
   {
-    "revision": "978d3e6abce16fc74e6c",
+    "revision": "13f09eaf0a0029c8a821",
     "url": "/catfriends/static/css/2.3b6f1bda.chunk.css"
   },
   {
-    "revision": "d85d07b89b0f0c6b2b38",
-    "url": "/catfriends/static/css/main.3e4246df.chunk.css"
+    "revision": "42d5c356dd71cf5d3777",
+    "url": "/catfriends/static/css/main.ee94f4df.chunk.css"
   },
   {
-    "revision": "978d3e6abce16fc74e6c",
-    "url": "/catfriends/static/js/2.faf57d51.chunk.js"
+    "revision": "13f09eaf0a0029c8a821",
+    "url": "/catfriends/static/js/2.e3722cad.chunk.js"
   },
   {
     "revision": "5356fa2f66e46e6c05e4cbe319ac7f1d",
-    "url": "/catfriends/static/js/2.faf57d51.chunk.js.LICENSE.txt"
+    "url": "/catfriends/static/js/2.e3722cad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d85d07b89b0f0c6b2b38",
-    "url": "/catfriends/static/js/main.e8d4f1bd.chunk.js"
+    "revision": "42d5c356dd71cf5d3777",
+    "url": "/catfriends/static/js/main.fc8a562c.chunk.js"
   },
   {
     "revision": "1f51c23de84d9b861617",
