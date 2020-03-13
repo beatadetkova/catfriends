@@ -4,3 +4,9 @@ body {
   font-family: sans-serif;
   background: linear-gradient(to left, #FDC830, #F37335);
 }
+
+footer {
+  text-align: center;
+  font-family: 'Strawberry Shortcake Supplement Logo Regular';
+  word-spacing: 0.2rem;
+}

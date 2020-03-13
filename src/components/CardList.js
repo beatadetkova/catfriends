@@ -3,7 +3,7 @@ import Card from './Card'
 
 const CardList = ({ kittens }) => {
   return (
-    <div>
+    <div className="flex flex-wrap items-center justify-center">
     {
       kittens.map((user, i )=> {
         return (

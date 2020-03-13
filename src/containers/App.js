@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import './App.css'
+import ErrorBoundry from '../components/ErrorBoundry';
+import './App.css';
 
 
 class App extends Component {
@@ -30,13 +31,15 @@ class App extends Component {
       return kitten.name.toLowerCase().includes(searchfield.toLowerCase());
     })
     return !kittens.length ?
-     <h1>Loading</h1>:
+     <h1>Loading</h1> :
      (
-        <div className='tc'>
+        <div className='flex flex-column items-center justify-center'>
           <h1 className='f1'>CatFriends</h1>
           <SearchBox searchChange={this.onSearchChange}/>
           <Scroll>
-            <CardList kittens={filteredKittens}/>
+            <ErrorBoundry>
+              <CardList kittens={filteredKittens}/>
+            </ErrorBoundry>
           </Scroll>
         </div>
       );
