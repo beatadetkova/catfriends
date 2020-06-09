@@ -17,8 +17,8 @@ class App extends Component {
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response=> response.json())
-    .then(users => this.setState({ kittens: users}));
+    .then(response => response.json())
+    .then(users => this.setState({ kittens: users }));
   }
 
   onSearchChange = (event) => {
@@ -27,9 +27,7 @@ class App extends Component {
 
   render () {
     const { kittens, searchfield } = this.state;
-    const filteredKittens = kittens.filter(kitten => {
-      return kitten.name.toLowerCase().includes(searchfield.toLowerCase());
-    })
+    const filteredKittens = kittens.filter(kitten => kitten.name.toLowerCase().includes(searchfield.toLowerCase()))
     return !kittens.length ?
      <h1>Loading</h1> :
      (
