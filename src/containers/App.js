@@ -1,39 +1,45 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundry from '../components/ErrorBoundry';
 import './App.css';
 
+import { setSearchField, requestKittens } from '../actions'
+
+const mapStateToProps = state => {
+  return {
+    searchField: state.searchKittens.searchField,
+    kittens: state.requestKittens.kittens,
+    isPending: state.requestKittens.isPending,
+    error: state.requestKittens.error
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestKittens: () => dispatch(requestKittens())
+  }
+}
+
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      kittens: [],
-      searchfield: ''
-    }
-  }
-
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(users => this.setState({ kittens: users }));
-  }
-
-  onSearchChange = (event) => {
-    this.setState({ searchfield: event.target.value })
+    this.props.onRequestKittens();
   }
 
   render () {
-    const { kittens, searchfield } = this.state;
-    const filteredKittens = kittens.filter(kitten => kitten.name.toLowerCase().includes(searchfield.toLowerCase()))
-    return !kittens.length ?
+    // console.log('props', this.props);
+    const { searchField, onSearchChange, kittens, isPending } = this.props;
+    const filteredKittens = kittens.filter(kitten => kitten.name.toLowerCase().includes(searchField.toLowerCase()));
+    return isPending ?
      <h1>Loading</h1> :
      (
         <div className='flex flex-column items-center justify-center'>
           <h1 className='f1'>CatFriends</h1>
-          <SearchBox searchChange={this.onSearchChange}/>
+          <SearchBox searchChange={onSearchChange}/>
           <Scroll>
             <ErrorBoundry>
               <CardList kittens={filteredKittens}/>
@@ -44,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
